@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Prática - Flutter Travel App</title>
+    <style>
+        :root {
+            --primary-color: #0277bd;
+            --secondary-color: #455a64;
+            --accent-color: #ffc107;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .student-info {
+            margin-top: 10px;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 20px;
+        }
+
+        .code-block {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            font-size: 14px;
+            margin: 15px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .print-section {
+            background: #f9f9f9;
+            border: 1px inset #eee;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .link {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Aplicativo de Avaliação de Destinos Turísticos com Flutter</h1>
+    </header>
+
+    <section>
+        <h2>Objetivo da Prática</h2>
+        <p>O objetivo desta prática foi desenvolver um aplicativo móvel utilizando o framework Flutter para uma agência de viagens fictícia. O aplicativo tem como finalidade apresentar destinos turísticos aos usuários, permitindo a visualização de informações detalhadas sobre cada local, incluindo imagens, descrições, avaliações e funcionalidades interativas como ligação telefônica, visualização de rotas e compartilhamento.</p>
+    </section>
+
+    <section>
+        <h2>Análise Crítica e Desenvolvimento</h2>
+        
+        <h3>1. Estrutura do Projeto</h3>
+        <p>O projeto segue a arquitetura padrão do Flutter:</p>
+        <div class="code-block">
+            dgt2812/<br>
+            ├── lib/<br>
+            │   └── main.dart (Código principal)<br>
+            ├── images/<br>
+            │   ├── copacabana.jpg<br>
+            │   └── visualização.png<br>
+            ├── pubspec.yaml (Dependências)<br>
+            └── README.md
+        </div>
+
+        <h3>2. Implementação da Interface</h3>
+        <ul>
+            <li><strong>AppBar:</strong> Título "Destinos Turísticos" com azul personalizado.</li>
+            <li><strong>ListView:</strong> Container scrollável para todo o conteúdo.</li>
+            <li><strong>Row e Column:</strong> Organização lógica dos elementos visuais.</li>
+            <li><strong>Icon:</strong> Uso de <em>Icons.star</em> para avaliações e ícones funcionais.</li>
+        </ul>
+
+        <h3>3. Seção de Título (titleSection)</h3>
+        <p>Exemplo de implementação do Widget de título:</p>
+        <div class="code-block">
+            Widget titleSection = Container(<br>
+            &nbsp;&nbsp;padding: const EdgeInsets.all(32),<br>
+            &nbsp;&nbsp;child: Row(<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;children: [<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Expanded(<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child: Column(<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;crossAxisAlignment: CrossAxisAlignment.start,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;children: [<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text('Praia de Copacabana', style: TextStyle(fontWeight: FontWeight.bold)),<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Text('Rio de Janeiro, Brasil', style: TextStyle(color: Colors.grey[500])),<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Icon(Icons.star, color: Colors.amber),<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const Text('4.8'),<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;],<br>
+            &nbsp;&nbsp;),<br>
+            );
+        </div>
+
+        <h3>4. Seção de Botões (buttonSection)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Botão</th>
+                    <th>Ícone</th>
+                    <th>Função</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>LIGAR</td>
+                    <td>phone</td>
+                    <td>Abre o discador com número da agência</td>
+                </tr>
+                <tr>
+                    <td>ROTA</td>
+                    <td>near_me</td>
+                    <td>Abre o Google Maps com coordenadas</td>
+                </tr>
+                <tr>
+                    <td>COMPARTILHAR</td>
+                    <td>share</td>
+                    <td>Abre menu de compartilhamento nativo</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>5. Seção de Texto (textSection)</h3>
+        <p>Descrição detalhada com texto justificado e padding de 32 para melhor legibilidade, destacando o calçadão de Copacabana e atividades locais.</p>
+    </section>
+
+    <section>
+        <h2>Prints da Implementação</h2>
+        <div class="print-section">
+            <strong>Figura 1: Interface Principal</strong>
+            <p>Interface completa rodando no Chrome, exibindo a AppBar, imagem principal e botões de ação.</p>
+        </div>
+        <div class="print-section">
+            <strong>Figura 2: Estrutura Principal (main.dart)</strong>
+            <p>Demonstração do uso do widget Scaffold e ListView para garantir responsividade.</p>
+        </div>
+        <div class="print-section">
+            <strong>Figura 3: Funcionalidade ROTA</strong>
+            <p>Integração bem-sucedida com o Google Maps via coordenadas geográficas.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Configurações Técnicas</h2>
+        <p><strong>Dependências (pubspec.yaml):</strong></p>
+        <ul>
+            <li><code>url_launcher: ^6.2.1</code> - Para chamadas e mapas.</li>
+            <li><code>share_plus: ^7.2.1</code> - Para compartilhamento social.</li>
+        </ul>
+        <p><strong>Repositório:</strong> <a href="https://github.com/alvesvslucas/Trabalho-Pr-tico-dgt2812-Estacio" class="link">Acessar GitHub</a></p>
+    </section>
+
+    <section>
+        <h2>Conclusão</h2>
+        <p>A prática permitiu consolidar os conhecimentos sobre desenvolvimento mobile com Flutter, especialmente no que diz respeito à construção de interfaces responsivas e organizadas. O uso de Widgets como Row, Column, Container e ListView demonstrou a flexibilidade do framework para criar layouts complexos de forma declarativa.</p>
+    </section>
+
+    <div class="footer">
+        <p>&copy; 2026 - Trabalho Acadêmico - Flutter</p>
+    </div>
+</div>
+
+</body>
+</html>
