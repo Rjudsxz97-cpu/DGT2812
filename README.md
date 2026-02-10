@@ -124,9 +124,9 @@ O aplicativo apresenta:
 
 ## Autor
 
-**Lucas Alves**
+**Judson Felipe da silva**
 - Disciplina: dgt2812 - Desenvolvimento de Aplicativos Moveis com Flutter
-- Instituicao: Campus Parangaba Estacio 
+- Instituicao: Polo planalto - Natal-RN
 
 ## Licenca
 
