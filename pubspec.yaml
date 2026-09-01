@@ -1,0 +1,42 @@
+name: my_app
+description: "TORDSILHAS - Agência de Viagens e Experiências"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    # ==========================================================
+    # DESTINOS E PONTOS TURÍSTICOS
+    # ==========================================================
+
+    - images/nordeste/fortaleza/
+    - images/nordeste/natal/genipabu/
+    - images/nordeste/natal/praia_do_amor/
+    - images/nordeste/natal/praia_ponta_negra/
+    - images/nordeste/paraiba/praia_coqueirinho/
+
+    # ==========================================================
+    # PACOTES DE HOTÉIS - NATAL
+    # ==========================================================
+
+    - images/nordeste/natal/pacotes/brisa_do_mar/
+    - images/nordeste/natal/pacotes/la_belle/
+    - images/nordeste/natal/pacotes/valencia/
